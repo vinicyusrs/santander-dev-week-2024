@@ -1,5 +1,7 @@
 package me.dio.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,8 +18,8 @@ public class Card {
 	@Column(unique = true)
     private String number;
     
-    @Column(name ="available_limit")
-    private Double limit;
+    @Column(name ="available_limit", precision = 13, scale = 2)
+    private BigDecimal limit;
 
     // Getters and Setters
     public Long getId() {
@@ -36,11 +38,11 @@ public class Card {
         this.number = number;
     }
 
-    public Double getLimit() {
+    public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(Double limit) {
+    public void setLimit(BigDecimal limit) {
         this.limit = limit;
     }
 

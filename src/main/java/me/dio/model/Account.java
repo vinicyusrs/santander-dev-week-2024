@@ -1,5 +1,7 @@
 package me.dio.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,11 +19,11 @@ public class Account {
     private String number;
     private String agency;
     
-    @Column()
-    private Double balance;
+    @Column(precision = 13, scale = 2)
+    private BigDecimal balance;
     
-    @Column(name ="additional_limit")
-    private Double limit;
+    @Column(name ="additional_limit", precision = 13, scale = 2)
+    private BigDecimal limit;
 
     // Getters and Setters
     public Long getId() {
@@ -48,19 +50,19 @@ public class Account {
         this.agency = agency;
     }
 
-    public Double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
-    public Double getLimit() {
+    public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(Double limit) {
+    public void setLimit(BigDecimal limit) {
         this.limit = limit;
     }
 
